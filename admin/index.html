@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATTIAS | Administración</title>
+<style>
+:root {
+  --sage: #718D72;
+  --pale: #DDE8D5;
+  --cream: #F3F0E7;
+  --beige: #D9CBB4;
+  --dark: #405844;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+header {
+  background: white;
+  padding: 20px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--pale);
+}
+.logo { color: var(--sage); font-size: 25px; font-weight: 800; }
+main { max-width: 1100px; margin: auto; padding: 35px 20px; }
+h1 { font-size: 30px; }
+.subtitle { color: #829181; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 5px 20px #718d7210;
+}
+.number { font-size: 29px; font-weight: 800; color: var(--sage); }
+.label { color: #879384; font-size: 13px; }
+button {
+  background: var(--sage);
+  color: white;
+  border: 0;
+  padding: 12px 17px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover { background: var(--dark); }
+input {
+  padding: 12px;
+  border: 1px solid var(--pale);
+  border-radius: 10px;
+  width: 100%;
+  margin: 8px 0;
+}
+section { margin-top: 30px; }
+.badge {
+  background: var(--pale);
+  color: var(--dark);
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+footer { padding: 25px; text-align: center; color: #879384; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🐾 MATTIAS</div>
+  <span class="badge">PORTAL ADMINISTRATIVO</span>
+</header>
+<main>
+  <h1>Panel de administración</h1>
+  <p class="subtitle">Bienvenido al centro de operaciones MATTIAS.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">Usuarios registrados</div>
+      <div class="number">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Cuidadores</div>
+      <div class="number">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Reservas</div>
+      <div class="number">0</div>
+    </div>
+    <div class="card">
+      <div class="label">Comisión</div>
+      <div class="number">15%</div>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>Verificación de cuidadores</h2>
+    <p>Las solicitudes de registro deberán revisarse antes de habilitar los servicios.</p>
+    <span class="badge">Verificación obligatoria</span>
+  </section>
+
+  <section class="card">
+    <h2>Buscar usuario</h2>
+    <input id="search" placeholder="Correo o nombre del usuario">
+    <button onclick="searchUser()">Buscar</button>
+    <p id="result"></p>
+  </section>
+
+  <section class="card">
+    <h2>Modelo comercial</h2>
+    <p>Comisión MATTIAS: <strong>15%</strong></p>
+    <p>Participación del cuidador: <strong>85%</strong></p>
+  </section>
+</main>
+<footer>MATTIAS · Cuidamos lo que más amas.</footer>
+<script>
+function searchUser() {
+  const value = document.getElementById('search').value.trim();
+  document.getElementById('result').textContent =
+    value ? 'La búsqueda estará disponible al conectar la base de datos.' :
+    'Escribe un nombre o correo.';
+}
+</script>
+</body>
+</html>
